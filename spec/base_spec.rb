@@ -49,5 +49,25 @@ module WeatherObject
         expect(weather.history.member?(measurement)).to be true
       end
     end
+
+    describe '#add_history' do
+      it 'creates a measurement' do
+        measurement_values = double(:hash)
+        allow(Measurement).to receive(:new)
+
+        weather.add_history(measurement_values)
+
+        expect(Measurement).to have_received(:new).with(measurement_values)
+      end
+
+      it 'adds the measurement to the list of historical data' do
+        measurement = double(:measurement)
+        allow(Measurement).to receive(:new).and_return(measurement)
+
+        weather.add_history
+
+        expect(weather.history.member?(measurement)).to be true
+      end
+    end
   end
 end

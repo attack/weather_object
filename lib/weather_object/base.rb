@@ -17,5 +17,6 @@ module WeatherObject
     def add_measurement(attributes={})
       history.add Measurement.new(attributes)
     end
+    alias_method :add_history, :add_measurement
   end
 end
