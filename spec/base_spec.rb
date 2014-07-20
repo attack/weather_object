@@ -69,5 +69,25 @@ module WeatherObject
         expect(weather.history.member?(measurement)).to be true
       end
     end
+
+    describe '#add_forecast' do
+      it 'creates a prediction' do
+        prediction_values = double(:hash)
+        allow(Prediction).to receive(:new)
+
+        weather.add_forecast(prediction_values)
+
+        expect(Prediction).to have_received(:new).with(prediction_values)
+      end
+
+      it 'adds the measurement to the list of historical data' do
+        prediction = double(:prediction)
+        allow(Prediction).to receive(:new).and_return(prediction)
+
+        weather.add_forecast
+
+        expect(weather.forecast.member?(prediction)).to be true
+      end
+    end
   end
 end

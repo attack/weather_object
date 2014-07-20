@@ -8,7 +8,8 @@ module WeatherObject
     attribute :weight, Integer, default: 1
     attribute :status_code, Integer
 
-    attribute :history, WeatherObject::Measurements
+    attribute :history, Measurements
+    attribute :forecast, Predictions
 
     def current
       history.current
@@ -18,5 +19,9 @@ module WeatherObject
       history.add Measurement.new(attributes)
     end
     alias_method :add_history, :add_measurement
+
+    def add_forecast(attributes={})
+      forecast.add Prediction.new(attributes)
+    end
   end
 end
