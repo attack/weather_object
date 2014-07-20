@@ -5,6 +5,6 @@ module WeatherObject
     let(:measurement) { Measurement.new }
 
     it { is_expected.to have_field(:observed_at).of_type(Time) }
-    it { is_expected.to have_field(:temperature).of_type(Integer) }
+    it { is_expected.to have_field(:temperature).of_type(Data::Temperature) }
   end
 end

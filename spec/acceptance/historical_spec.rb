@@ -7,6 +7,6 @@ RSpec.describe 'Historical weather data' do
       temperature: 20
     )
 
-    expect(weather.history.first.temperature).to eq 20
+    expect(weather.history.first.temperature.to_s).to eq '20 C'
   end
 end

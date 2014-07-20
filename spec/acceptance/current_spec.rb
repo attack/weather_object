@@ -7,6 +7,6 @@ RSpec.describe 'Current weather data' do
       temperature: 20
     )
 
-    expect(weather.current.temperature).to eq 20
+    expect(weather.current.temperature.to_s).to eq '20 C'
   end
 end

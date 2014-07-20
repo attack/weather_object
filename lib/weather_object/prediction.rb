@@ -4,6 +4,6 @@ module WeatherObject
   class Prediction
     include Virtus.model
 
-    attribute :high, Integer
+    attribute :high, Attribute::Temperature
   end
 end

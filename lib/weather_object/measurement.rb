@@ -5,6 +5,6 @@ module WeatherObject
     include Virtus.model
 
     attribute :observed_at, Attribute::Time
-    attribute :temperature, Integer
+    attribute :temperature, Attribute::Temperature
   end
 end
