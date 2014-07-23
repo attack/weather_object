@@ -9,6 +9,7 @@ module WeatherObject
     attribute :dew_point, Attribute::Temperature
     attribute :heat_index, Attribute::Temperature
     attribute :wind_chill, Attribute::Temperature
+    attribute :wind, Attribute::Vector
     attribute :pressure, Attribute::Pressure
     attribute :visibility, Attribute::Distance
     attribute :humidity, Attribute::Float
