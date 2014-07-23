@@ -9,5 +9,6 @@ module WeatherObject
     attribute :dew_point, Attribute::Temperature
     attribute :heat_index, Attribute::Temperature
     attribute :wind_chill, Attribute::Temperature
+    attribute :pressure, Attribute::Pressure
   end
 end

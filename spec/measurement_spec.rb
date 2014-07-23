@@ -9,5 +9,6 @@ module WeatherObject
     it { is_expected.to have_field(:dew_point).of_type(Data::Temperature) }
     it { is_expected.to have_field(:heat_index).of_type(Data::Temperature) }
     it { is_expected.to have_field(:wind_chill).of_type(Data::Temperature) }
+    it { is_expected.to have_field(:pressure).of_type(Data::Pressure) }
   end
 end
