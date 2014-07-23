@@ -10,5 +10,6 @@ module WeatherObject
     attribute :heat_index, Attribute::Temperature
     attribute :wind_chill, Attribute::Temperature
     attribute :pressure, Attribute::Pressure
+    attribute :visibility, Attribute::Distance
   end
 end
