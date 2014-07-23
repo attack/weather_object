@@ -11,7 +11,9 @@ RSpec.describe 'Current weather data' do
       wind: 10,
       pressure: 100,
       visibility: 50,
-      humidity: 75
+      humidity: 75,
+      icon: 'wind',
+      condition: 'windy and sunny'
     )
 
     expect(weather.current.temperature.to_s).to eq '20 C'
@@ -22,5 +24,7 @@ RSpec.describe 'Current weather data' do
     expect(weather.current.pressure.to_s).to eq '100 mb'
     expect(weather.current.visibility.to_s).to eq '50 km'
     expect(weather.current.humidity.to_s).to eq '75.0'
+    expect(weather.current.icon.to_s).to eq 'wind'
+    expect(weather.current.condition.to_s).to eq 'windy and sunny'
   end
 end

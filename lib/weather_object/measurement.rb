@@ -13,5 +13,7 @@ module WeatherObject
     attribute :pressure, Attribute::Pressure
     attribute :visibility, Attribute::Distance
     attribute :humidity, Attribute::Float
+    attribute :icon, String
+    attribute :condition, String
   end
 end
