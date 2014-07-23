@@ -11,5 +11,6 @@ module WeatherObject
     it { is_expected.to have_field(:wind_chill).of_type(Data::Temperature) }
     it { is_expected.to have_field(:pressure).of_type(Data::Pressure) }
     it { is_expected.to have_field(:visibility).of_type(Data::Distance) }
+    it { is_expected.to have_field(:humidity).of_type(Float) }
   end
 end

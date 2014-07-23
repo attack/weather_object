@@ -11,5 +11,6 @@ module WeatherObject
     attribute :wind_chill, Attribute::Temperature
     attribute :pressure, Attribute::Pressure
     attribute :visibility, Attribute::Distance
+    attribute :humidity, Attribute::Float
   end
 end
