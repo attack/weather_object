@@ -5,8 +5,6 @@ module WeatherObject
     include Virtus.model
 
     attribute :query, String
-    attribute :weight, Integer, default: 1
-    attribute :status_code, Integer
 
     attribute :history, Measurements
     attribute :forecast, Predictions
