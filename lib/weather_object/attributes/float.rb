@@ -7,4 +7,3 @@ module WeatherObject
     end
   end
 end
-

@@ -8,6 +8,7 @@ module WeatherObject
     attribute :query, String
     attribute :source, Symbol
     attribute :format, Symbol
+    attribute :station, Attribute::Location
     attribute :metadata, Hash
 
     attribute :history, Measurements

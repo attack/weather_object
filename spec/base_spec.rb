@@ -10,6 +10,14 @@ module WeatherObject
     it { is_expected.to have_field(:format).of_type(Symbol) }
     it { is_expected.to have_field(:metadata).of_type(Hash) }
 
+    describe 'attributes' do
+      describe '#station' do
+        it 'has a station location' do
+          expect(weather.station).to be_a Data::Location
+        end
+      end
+    end
+
     describe '#current' do
       it 'finds the most recent measurement' do
         weather.add_measurement(observed_at: yesterday)
