@@ -9,5 +9,5 @@ group :development, :test do
 end
 
 group :test do
-  gem 'barometer-support', '>= 0.0.4'
+  gem 'barometer-support', '>= 0.0.5'
 end
