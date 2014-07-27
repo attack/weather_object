@@ -3,4 +3,5 @@ module WeatherObject
   end
 end
 
+require 'weather_object/utils/time'
 require 'weather_object/utils/zone_code_lookup'

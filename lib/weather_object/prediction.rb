@@ -12,5 +12,10 @@ module WeatherObject
     attribute :sun, Attribute::Sun
     attribute :icon, String
     attribute :condition, String
+
+    def covers?(time)
+      raise ArgumentError unless time.is_a?(Time)
+      time >= starts_at && time <= ends_at
+    end
   end
 end
