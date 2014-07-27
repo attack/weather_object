@@ -5,6 +5,9 @@ module WeatherObject
     let(:weather) { Base.new }
 
     it { is_expected.to have_field(:query).of_type(String) }
+    it { is_expected.to have_field(:source).of_type(Symbol) }
+    it { is_expected.to have_field(:format).of_type(Symbol) }
+    it { is_expected.to have_field(:metadata).of_type(Hash) }
 
     describe '#current' do
       it 'finds the most recent measurement' do

@@ -5,6 +5,9 @@ module WeatherObject
     include Virtus.model
 
     attribute :query, String
+    attribute :source, Symbol
+    attribute :format, Symbol
+    attribute :metadata, Hash
 
     attribute :history, Measurements
     attribute :forecast, Predictions
