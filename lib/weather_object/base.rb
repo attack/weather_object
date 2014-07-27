@@ -4,6 +4,7 @@ module WeatherObject
   class Base
     include Virtus.model
 
+    attribute :recorded_at, Attribute::Time
     attribute :query, String
     attribute :source, Symbol
     attribute :format, Symbol

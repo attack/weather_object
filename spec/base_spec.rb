@@ -4,6 +4,7 @@ module WeatherObject
   RSpec.describe Base do
     let(:weather) { Base.new }
 
+    it { is_expected.to have_field(:recorded_at).of_type(Time) }
     it { is_expected.to have_field(:query).of_type(String) }
     it { is_expected.to have_field(:source).of_type(Symbol) }
     it { is_expected.to have_field(:format).of_type(Symbol) }
