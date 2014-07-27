@@ -7,6 +7,12 @@ RSpec.describe 'Weather data' do
       query: 'New York, NY',
       source: :foo_weather,
       format: :coordinates,
+      location: WeatherObject::Data::Location.new(
+        name: 'Prospect Park',
+        city: 'New York',
+        state_code: 'NY',
+        country: 'US'
+      ),
       station: WeatherObject::Data::Location.new(
         name: 'JFK',
         city: 'New York',
@@ -23,6 +29,7 @@ RSpec.describe 'Weather data' do
     expect(weather.query).to eq 'New York, NY'
     expect(weather.source).to eq :foo_weather
     expect(weather.format).to eq :coordinates
+    expect(weather.location.to_s).to eq 'Prospect Park, New York, NY, US'
     expect(weather.station.to_s).to eq 'JFK, New York, NY, US'
     expect(weather.metadata).to eq(
       foo: 'bar',

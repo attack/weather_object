@@ -11,6 +11,12 @@ module WeatherObject
     it { is_expected.to have_field(:metadata).of_type(Hash) }
 
     describe 'attributes' do
+      describe '#location' do
+        it 'has a weather location' do
+          expect(weather.location).to be_a Data::Location
+        end
+      end
+
       describe '#station' do
         it 'has a station location' do
           expect(weather.station).to be_a Data::Location
