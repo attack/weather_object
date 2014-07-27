@@ -16,6 +16,11 @@ module WeatherObject
     attribute :history, Measurements
     attribute :forecast, Predictions
 
+    def initialize(attributes={})
+      super
+      @recorded_at ||= ::Time.now.utc
+    end
+
     def current
       history.current
     end

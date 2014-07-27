@@ -31,6 +31,10 @@ module WeatherObject
       end
     end
 
+    describe '.new' do
+      specify { expect(weather.recorded_at).to be }
+    end
+
     describe '#current' do
       it 'finds the most recent measurement' do
         weather.add_measurement(observed_at: yesterday)
