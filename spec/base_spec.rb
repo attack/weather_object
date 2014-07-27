@@ -22,6 +22,13 @@ module WeatherObject
           expect(weather.station).to be_a Data::Location
         end
       end
+
+      describe '#station' do
+        it 'has a timezone' do
+          weather = Base.new(timezone: Data::Zone.new('EDT'))
+          expect(weather.timezone).to be_a Data::Zone
+        end
+      end
     end
 
     describe '#current' do

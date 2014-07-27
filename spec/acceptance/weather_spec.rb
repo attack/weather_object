@@ -19,6 +19,7 @@ RSpec.describe 'Weather data' do
         state_code: 'NY',
         country: 'US'
       ),
+      timezone: WeatherObject::Data::Zone.new('EST'),
       metadata: {
         foo: 'bar',
         baz: true
@@ -31,6 +32,7 @@ RSpec.describe 'Weather data' do
     expect(weather.format).to eq :coordinates
     expect(weather.location.to_s).to eq 'Prospect Park, New York, NY, US'
     expect(weather.station.to_s).to eq 'JFK, New York, NY, US'
+    expect(weather.timezone.to_s).to eq 'EST'
     expect(weather.metadata).to eq(
       foo: 'bar',
       baz: true

@@ -1,4 +1,5 @@
 require 'weather_object/version'
+require 'weather_object/utils'
 require 'weather_object/data'
 require 'weather_object/attribute'
 require 'weather_object/collection'

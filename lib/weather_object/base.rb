@@ -10,6 +10,7 @@ module WeatherObject
     attribute :format, Symbol
     attribute :location, Attribute::Location
     attribute :station, Attribute::Location
+    attribute :timezone, Attribute::Zone
     attribute :metadata, Hash
 
     attribute :history, Measurements
