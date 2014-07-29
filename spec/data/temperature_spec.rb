@@ -19,6 +19,19 @@ module WeatherObject::Data
       end
     end
 
+    describe '.[]' do
+      it 'converts a number to a temperature' do
+        temperature = Temperature[10]
+        expect(temperature).to be_a Temperature
+        expect(temperature.to_s).to eq '10 C'
+      end
+
+      it 'leaves a temperature as a temperature' do
+        temperature = Temperature.new(10)
+        expect(Temperature[temperature]).to eq temperature
+      end
+    end
+
     describe '#f' do
       it 'returns known value as F' do
         temperature = Temperature.new(:imperial, 68)

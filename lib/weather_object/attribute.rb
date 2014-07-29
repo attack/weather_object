@@ -6,6 +6,7 @@ module WeatherObject
 end
 
 require 'weather_object/attributes/temperature'
+require 'weather_object/attributes/temperature_range'
 require 'weather_object/attributes/pressure'
 require 'weather_object/attributes/distance'
 require 'weather_object/attributes/vector'

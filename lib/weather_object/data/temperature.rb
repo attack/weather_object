@@ -1,6 +1,10 @@
 module WeatherObject
   module Data
     class Temperature < ConvertableUnits
+      def self.[](value)
+        value.is_a?(self) ? value : self.new(value)
+      end
+
       def c; metric; end
       def f; imperial; end
 
@@ -18,6 +22,5 @@ module WeatherObject
         ((9.0/5.0)*metric_value.to_f)+32.0
       end
     end
-
   end
 end
