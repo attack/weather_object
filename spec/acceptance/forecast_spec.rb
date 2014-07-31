@@ -7,6 +7,7 @@ RSpec.describe 'Forecast weather data' do
       time: [noon, evening],
       temperature: [5, 20],
       pop: '25%',
+      humidity: '75%',
       sun: WeatherObject::Data::Sun.new(rise: dawn, set: dusk),
       icon: 'sunny',
       condition: 'partly cloudy'
@@ -18,6 +19,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.temperature.high.to_s).to eq '20 C'
     expect(forecast.temperature.low.to_s).to eq '5 C'
     expect(forecast.pop.to_s).to eq '25.0'
+    expect(forecast.humidity.to_s).to eq '75.0'
     expect(forecast.sun.to_s).to eq 'rise: 07:50, set: 17:30'
     expect(forecast.icon.to_s).to eq 'sunny'
     expect(forecast.condition.to_s).to eq 'partly cloudy'

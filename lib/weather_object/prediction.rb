@@ -7,6 +7,7 @@ module WeatherObject
     attribute :time, Attribute::TimeRange
     attribute :temperature, Attribute::TemperatureRange
     attribute :pop, Attribute::Float
+    attribute :humidity, Attribute::Float
     attribute :sun, Attribute::Sun
     attribute :icon, String
     attribute :condition, String

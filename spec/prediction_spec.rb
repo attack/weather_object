@@ -5,6 +5,7 @@ module WeatherObject
     let(:prediction) { Prediction.new }
 
     it { is_expected.to have_field(:pop).of_type(Float) }
+    it { is_expected.to have_field(:humidity).of_type(Float) }
     it { is_expected.to have_field(:sun).of_type(Data::Sun) }
     it { is_expected.to have_field(:icon).of_type(String) }
     it { is_expected.to have_field(:condition).of_type(String) }
