@@ -10,7 +10,7 @@ module WeatherObject
           Utils::Time.parse(time)
         end
 
-      collection.detect{ |prediction| prediction.covers?(time) }
+      collection.detect{ |prediction| prediction.cover?(time) }
     end
   end
 end

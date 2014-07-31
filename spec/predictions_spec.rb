@@ -19,8 +19,10 @@ module WeatherObject
 
           0.upto(3) do |i|
             predictions.add(Prediction.new(
-              starts_at: start_time + (i * one_day_in_seconds),
-              ends_at: end_time + (i * one_day_in_seconds)
+              time: [
+                start_time + (i * one_day_in_seconds),
+                end_time + (i * one_day_in_seconds)
+              ]
             ))
           end
         end

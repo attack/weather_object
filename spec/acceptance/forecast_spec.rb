@@ -4,8 +4,7 @@ RSpec.describe 'Forecast weather data' do
   it 'holds forecast weather data' do
     weather = WeatherObject.new
     weather.add_forecast(
-      starts_at: noon,
-      ends_at: evening,
+      time: [noon, evening],
       temperature: [5, 20],
       pop: '25%',
       sun: WeatherObject::Data::Sun.new(rise: dawn, set: dusk),
@@ -14,8 +13,8 @@ RSpec.describe 'Forecast weather data' do
     )
 
     forecast = weather.forecast.first
-    expect(forecast.starts_at.to_s).to eq '2014-02-22 12:00:00 UTC'
-    expect(forecast.ends_at.to_s).to eq '2014-02-22 18:00:00 UTC'
+    expect(forecast.time.starts_at.to_s).to eq '2014-02-22 12:00:00 UTC'
+    expect(forecast.time.ends_at.to_s).to eq '2014-02-22 18:00:00 UTC'
     expect(forecast.temperature.high.to_s).to eq '20 C'
     expect(forecast.temperature.low.to_s).to eq '5 C'
     expect(forecast.pop.to_s).to eq '25.0'
