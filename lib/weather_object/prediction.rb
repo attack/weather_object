@@ -8,6 +8,7 @@ module WeatherObject
     attribute :temperature, Attribute::TemperatureRange
     attribute :pop, Attribute::Float
     attribute :humidity, Attribute::Float
+    attribute :wind, Attribute::Vector
     attribute :dew_point, Attribute::Temperature
     attribute :visibility, Attribute::Distance
     attribute :cloud_cover, Attribute::Float

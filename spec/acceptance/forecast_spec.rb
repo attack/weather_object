@@ -8,6 +8,7 @@ RSpec.describe 'Forecast weather data' do
       temperature: [5, 20],
       pop: '25%',
       humidity: '75%',
+      wind: 12,
       dew_point: 3,
       visibility: 10,
       cloud_cover: '15%',
@@ -23,6 +24,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.temperature.low.to_s).to eq '5 C'
     expect(forecast.pop.to_s).to eq '25.0'
     expect(forecast.humidity.to_s).to eq '75.0'
+    expect(forecast.wind.to_s).to eq '12 kph'
     expect(forecast.dew_point.to_s).to eq '3 C'
     expect(forecast.visibility.to_s).to eq '10 km'
     expect(forecast.cloud_cover.to_s).to eq '15.0'
