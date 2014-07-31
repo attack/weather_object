@@ -9,6 +9,7 @@ module WeatherObject
     attribute :pop, Attribute::Float
     attribute :humidity, Attribute::Float
     attribute :dew_point, Attribute::Temperature
+    attribute :visibility, Attribute::Distance
     attribute :sun, Attribute::Sun
     attribute :icon, String
     attribute :summary, String
