@@ -11,7 +11,7 @@ module WeatherObject
     attribute :dew_point, Attribute::Temperature
     attribute :sun, Attribute::Sun
     attribute :icon, String
-    attribute :condition, String
+    attribute :summary, String
 
     def cover?(query_time)
       time && time.cover?(query_time)

@@ -11,7 +11,7 @@ RSpec.describe 'Forecast weather data' do
       dew_point: 3,
       sun: WeatherObject::Data::Sun.new(rise: dawn, set: dusk),
       icon: 'sunny',
-      condition: 'partly cloudy'
+      summary: 'partly cloudy'
     )
 
     forecast = weather.forecast.first
@@ -24,7 +24,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.dew_point.to_s).to eq '3 C'
     expect(forecast.sun.to_s).to eq 'rise: 07:50, set: 17:30'
     expect(forecast.icon.to_s).to eq 'sunny'
-    expect(forecast.condition.to_s).to eq 'partly cloudy'
+    expect(forecast.summary.to_s).to eq 'partly cloudy'
   end
 
   def dawn
