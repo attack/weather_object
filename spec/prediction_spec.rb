@@ -34,6 +34,15 @@ module WeatherObject
       end
     end
 
+    describe "#apparent_temperature" do
+      it "sets high and low" do
+        prediction = Prediction.new(apparent_temperature: [6, 11])
+
+        expect(prediction.apparent_temperature.low.to_s).to eq '6 C'
+        expect(prediction.apparent_temperature.high.to_s).to eq '11 C'
+      end
+    end
+
     describe "#cover?" do
       it "returns true if the valid_date range includes the given date" do
         prediction = Prediction.new(

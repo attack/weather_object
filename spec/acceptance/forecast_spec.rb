@@ -6,6 +6,7 @@ RSpec.describe 'Forecast weather data' do
     weather.add_forecast(
       time: [noon, evening],
       temperature: [5, 20],
+      apparent_temperature: [6, 21],
       pop: '25%',
       humidity: '75%',
       wind: 12,
@@ -22,6 +23,8 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.time.ends_at.to_s).to eq '2014-02-22 18:00:00 UTC'
     expect(forecast.temperature.high.to_s).to eq '20 C'
     expect(forecast.temperature.low.to_s).to eq '5 C'
+    expect(forecast.apparent_temperature.high.to_s).to eq '21 C'
+    expect(forecast.apparent_temperature.low.to_s).to eq '6 C'
     expect(forecast.pop.to_s).to eq '25.0'
     expect(forecast.humidity.to_s).to eq '75.0'
     expect(forecast.wind.to_s).to eq '12 kph'

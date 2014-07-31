@@ -6,6 +6,7 @@ module WeatherObject
 
     attribute :time, Attribute::TimeRange
     attribute :temperature, Attribute::TemperatureRange
+    attribute :apparent_temperature, Attribute::TemperatureRange
     attribute :pop, Attribute::Float
     attribute :humidity, Attribute::Float
     attribute :wind, Attribute::Vector
