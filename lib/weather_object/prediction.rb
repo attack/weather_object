@@ -8,6 +8,7 @@ module WeatherObject
     attribute :temperature, Attribute::TemperatureRange
     attribute :pop, Attribute::Float
     attribute :humidity, Attribute::Float
+    attribute :dew_point, Attribute::Temperature
     attribute :sun, Attribute::Sun
     attribute :icon, String
     attribute :condition, String
