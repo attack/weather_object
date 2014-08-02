@@ -10,7 +10,6 @@ module WeatherObject
     it { is_expected.to have_field(:wind).of_type(Data::Vector) }
     it { is_expected.to have_field(:visibility).of_type(Data::Distance) }
     it { is_expected.to have_field(:cloud_cover).of_type(Float) }
-    it { is_expected.to have_field(:sun).of_type(Data::Sun) }
     it { is_expected.to have_field(:icon).of_type(String) }
     it { is_expected.to have_field(:summary).of_type(String) }
 
@@ -40,6 +39,17 @@ module WeatherObject
 
         expect(prediction.apparent_temperature.low.to_s).to eq '6 C'
         expect(prediction.apparent_temperature.high.to_s).to eq '11 C'
+      end
+    end
+
+    describe "#daylight" do
+      it "sets start and end" do
+        sunrise = ::Time.utc(2014, 2, 22, 7, 30, 0)
+        sunset = ::Time.utc(2014, 2, 22, 17, 30, 0)
+        prediction = Prediction.new(daylight: [sunrise, sunset])
+
+        expect(prediction.daylight.starts_at.to_s).to eq '2014-02-22 07:30:00 UTC'
+        expect(prediction.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
       end
     end
 

@@ -13,7 +13,7 @@ module WeatherObject
     attribute :dew_point, Attribute::Temperature
     attribute :visibility, Attribute::Distance
     attribute :cloud_cover, Attribute::Float
-    attribute :sun, Attribute::Sun
+    attribute :daylight, Attribute::TimeRange
     attribute :icon, String
     attribute :summary, String
 

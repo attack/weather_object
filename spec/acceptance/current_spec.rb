@@ -12,7 +12,7 @@ RSpec.describe 'Current weather data' do
       pressure: 100,
       visibility: 50,
       humidity: 75,
-      sun: WeatherObject::Data::Sun.new(rise: morning, set: evening),
+      daylight: [sunrise, sunset],
       icon: 'wind',
       condition: 'windy and sunny'
     )
@@ -25,13 +25,22 @@ RSpec.describe 'Current weather data' do
     expect(weather.current.pressure.to_s).to eq '100 mb'
     expect(weather.current.visibility.to_s).to eq '50 km'
     expect(weather.current.humidity.to_s).to eq '75.0'
-    expect(weather.current.sun.to_s).to eq 'rise: 07:50, set: 17:30'
+    expect(weather.current.daylight.starts_at.to_s).to eq '2014-02-22 07:50:00 UTC'
+    expect(weather.current.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
     expect(weather.current.icon.to_s).to eq 'wind'
     expect(weather.current.condition.to_s).to eq 'windy and sunny'
   end
 
+  def sunrise
+    ::Time.utc(2014, 02, 22, 7, 50, 0)
+  end
+
   def morning
     ::Time.new(2014, 02, 22, 7, 50, 0)
+  end
+
+  def sunset
+    ::Time.utc(2014, 02, 22, 17, 30, 0)
   end
 
   def evening
