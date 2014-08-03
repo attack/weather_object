@@ -15,6 +15,7 @@ RSpec.describe 'Forecast weather data' do
       cloud_cover: '15%',
       daylight: [sunrise, sunset],
       moon_phase: 0.5,
+      ozone: 3,
       icon: 'sunny',
       summary: 'partly cloudy'
     )
@@ -35,6 +36,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.daylight.starts_at.to_s).to eq '2014-02-22 07:50:00 UTC'
     expect(forecast.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
     expect(forecast.moon_phase.to_s).to eq '50% (full moon)'
+    expect(forecast.ozone.to_s).to eq '3 DU'
     expect(forecast.icon.to_s).to eq 'sunny'
     expect(forecast.summary.to_s).to eq 'partly cloudy'
   end

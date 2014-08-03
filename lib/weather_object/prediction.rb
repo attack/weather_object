@@ -15,6 +15,7 @@ module WeatherObject
     attribute :cloud_cover, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
     attribute :moon_phase, Attribute::MoonPhase
+    attribute :ozone, Attribute::Ozone
     attribute :icon, String
     attribute :summary, String
 

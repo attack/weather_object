@@ -78,6 +78,13 @@ module WeatherObject
       end
     end
 
+    describe "#ozone" do
+      it "sets ozone" do
+        prediction = Prediction.new(ozone: 3)
+        expect(prediction.ozone.to_s).to eq '3 DU'
+      end
+    end
+
     describe "#cover?" do
       it "returns true if the valid_date range includes the given date" do
         prediction = Prediction.new(
