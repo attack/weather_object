@@ -15,6 +15,6 @@ module WeatherObject
     attribute :humidity, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
     attribute :icon, String
-    attribute :condition, String
+    attribute :summary, String
   end
 end
