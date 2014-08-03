@@ -6,6 +6,7 @@ module WeatherObject
 
     attribute :time, Attribute::Time
     attribute :temperature, Attribute::Temperature
+    attribute :apparent_temperature, Attribute::Temperature
     attribute :dew_point, Attribute::Temperature
     attribute :heat_index, Attribute::Temperature
     attribute :wind_chill, Attribute::Temperature

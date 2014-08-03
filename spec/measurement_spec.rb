@@ -6,6 +6,7 @@ module WeatherObject
 
     it { is_expected.to have_field(:time).of_type(Time) }
     it { is_expected.to have_field(:temperature).of_type(Data::Temperature) }
+    it { is_expected.to have_field(:apparent_temperature).of_type(Data::Temperature) }
     it { is_expected.to have_field(:dew_point).of_type(Data::Temperature) }
     it { is_expected.to have_field(:heat_index).of_type(Data::Temperature) }
     it { is_expected.to have_field(:wind_chill).of_type(Data::Temperature) }
