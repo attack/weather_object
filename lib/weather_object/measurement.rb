@@ -12,7 +12,7 @@ module WeatherObject
     attribute :wind, Attribute::Vector
     attribute :pressure, Attribute::Pressure
     attribute :visibility, Attribute::Distance
-    attribute :humidity, Attribute::Float
+    attribute :humidity, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
     attribute :icon, String
     attribute :condition, String

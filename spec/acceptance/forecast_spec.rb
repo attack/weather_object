@@ -8,7 +8,7 @@ RSpec.describe 'Forecast weather data' do
       temperature: [5, 20],
       apparent_temperature: [6, 21],
       pop: '25%',
-      humidity: '75%',
+      humidity: 0.75,
       wind: 12,
       dew_point: 3,
       visibility: 10,
@@ -25,12 +25,12 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.temperature.low.to_s).to eq '5 C'
     expect(forecast.apparent_temperature.high.to_s).to eq '21 C'
     expect(forecast.apparent_temperature.low.to_s).to eq '6 C'
-    expect(forecast.pop.to_s).to eq '25.0'
-    expect(forecast.humidity.to_s).to eq '75.0'
+    expect(forecast.pop.to_s).to eq '25.0 %'
+    expect(forecast.humidity.to_s).to eq '75.0 %'
     expect(forecast.wind.to_s).to eq '12 kph'
     expect(forecast.dew_point.to_s).to eq '3 C'
     expect(forecast.visibility.to_s).to eq '10 km'
-    expect(forecast.cloud_cover.to_s).to eq '15.0'
+    expect(forecast.cloud_cover.to_s).to eq '15.0 %'
     expect(forecast.daylight.starts_at.to_s).to eq '2014-02-22 07:50:00 UTC'
     expect(forecast.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
     expect(forecast.icon.to_s).to eq 'sunny'

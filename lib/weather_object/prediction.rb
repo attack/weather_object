@@ -7,12 +7,12 @@ module WeatherObject
     attribute :time, Attribute::TimeRange
     attribute :temperature, Attribute::TemperatureRange
     attribute :apparent_temperature, Attribute::TemperatureRange
-    attribute :pop, Attribute::Float
-    attribute :humidity, Attribute::Float
+    attribute :pop, Attribute::Percentage
+    attribute :humidity, Attribute::Percentage
     attribute :wind, Attribute::Vector
     attribute :dew_point, Attribute::Temperature
     attribute :visibility, Attribute::Distance
-    attribute :cloud_cover, Attribute::Float
+    attribute :cloud_cover, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
     attribute :icon, String
     attribute :summary, String

@@ -4,12 +4,9 @@ module WeatherObject
   RSpec.describe Prediction do
     let(:prediction) { Prediction.new }
 
-    it { is_expected.to have_field(:pop).of_type(Float) }
-    it { is_expected.to have_field(:humidity).of_type(Float) }
     it { is_expected.to have_field(:dew_point).of_type(Data::Temperature) }
     it { is_expected.to have_field(:wind).of_type(Data::Vector) }
     it { is_expected.to have_field(:visibility).of_type(Data::Distance) }
-    it { is_expected.to have_field(:cloud_cover).of_type(Float) }
     it { is_expected.to have_field(:icon).of_type(String) }
     it { is_expected.to have_field(:summary).of_type(String) }
 
@@ -39,6 +36,27 @@ module WeatherObject
 
         expect(prediction.apparent_temperature.low.to_s).to eq '6 C'
         expect(prediction.apparent_temperature.high.to_s).to eq '11 C'
+      end
+    end
+
+    describe "#pop" do
+      it "sets pop percentage" do
+        prediction = Prediction.new(pop: 50)
+        expect(prediction.pop.to_s).to eq '50.0 %'
+      end
+    end
+
+    describe "#humidity" do
+      it "sets humidity percentage" do
+        prediction = Prediction.new(humidity: 50)
+        expect(prediction.humidity.to_s).to eq '50.0 %'
+      end
+    end
+
+    describe "#cloud_cover" do
+      it "sets cloud_cover percentage" do
+        prediction = Prediction.new(cloud_cover: 50)
+        expect(prediction.cloud_cover.to_s).to eq '50.0 %'
       end
     end
 

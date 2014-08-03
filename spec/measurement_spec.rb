@@ -12,9 +12,15 @@ module WeatherObject
     it { is_expected.to have_field(:wind).of_type(Data::Vector) }
     it { is_expected.to have_field(:pressure).of_type(Data::Pressure) }
     it { is_expected.to have_field(:visibility).of_type(Data::Distance) }
-    it { is_expected.to have_field(:humidity).of_type(Float) }
     it { is_expected.to have_field(:icon).of_type(String) }
     it { is_expected.to have_field(:condition).of_type(String) }
+
+    describe "#humidity" do
+      it "sets humidity percentage" do
+        measurement = Measurement.new(humidity: 50)
+        expect(measurement.humidity.to_s).to eq '50.0 %'
+      end
+    end
 
     describe "#daylight" do
       it "sets start and end" do
