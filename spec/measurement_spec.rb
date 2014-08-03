@@ -16,6 +16,13 @@ module WeatherObject
     it { is_expected.to have_field(:icon).of_type(String) }
     it { is_expected.to have_field(:summary).of_type(String) }
 
+    describe "#pop" do
+      it "sets pop percentage" do
+        measurement = Measurement.new(pop: 50)
+        expect(measurement.pop.to_s).to eq '50.0 %'
+      end
+    end
+
     describe "#humidity" do
       it "sets humidity percentage" do
         measurement = Measurement.new(humidity: 50)

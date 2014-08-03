@@ -7,7 +7,7 @@ module WeatherObject
     attribute :time, Attribute::TimeRange
     attribute :temperature, Attribute::TemperatureRange
     attribute :apparent_temperature, Attribute::TemperatureRange
-    attribute :pop, Attribute::Percentage
+    attribute :precipitation_probability, Attribute::Percentage
     attribute :humidity, Attribute::Percentage
     attribute :wind, Attribute::Vector
     attribute :dew_point, Attribute::Temperature
@@ -18,6 +18,9 @@ module WeatherObject
     attribute :ozone, Attribute::Ozone
     attribute :icon, String
     attribute :summary, String
+
+    alias_method :pop, :precipitation_probability
+    alias_method :pop=, :precipitation_probability=
 
     def cover?(query_time)
       time && time.cover?(query_time)
