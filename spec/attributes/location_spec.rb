@@ -17,6 +17,16 @@ module WeatherObject
       end
     end
 
+    context 'when setting with valid data' do
+      it 'sets the value' do
+        model = TestClass.new(location: {
+          name: 'New York'
+        })
+
+        expect(model.location.name).to eq 'New York'
+      end
+    end
+
     context 'when setting with invalid data' do
       it 'raises an error' do
         expect {

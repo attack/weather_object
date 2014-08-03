@@ -7,18 +7,18 @@ RSpec.describe 'Weather data' do
       query: 'New York, NY',
       source: :foo_weather,
       format: :coordinates,
-      location: WeatherObject::Data::Location.new(
+      location: {
         name: 'Prospect Park',
         city: 'New York',
         state_code: 'NY',
         country: 'US'
-      ),
-      station: WeatherObject::Data::Location.new(
+      },
+      station: {
         name: 'JFK',
         city: 'New York',
         state_code: 'NY',
         country: 'US'
-      ),
+      },
       timezone: WeatherObject::Data::Zone.new('EST'),
       metadata: {
         foo: 'bar',
