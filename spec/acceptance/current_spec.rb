@@ -4,6 +4,7 @@ RSpec.describe 'Current weather data' do
   it 'holds current weather data' do
     weather = WeatherObject.new
     weather.add_measurement(
+      time: now,
       temperature: 20,
       dew_point: 10,
       heat_index: 25,
@@ -17,6 +18,7 @@ RSpec.describe 'Current weather data' do
       condition: 'windy and sunny'
     )
 
+    expect(weather.current.time.to_s).to eq '2014-02-22 09:45:00 UTC'
     expect(weather.current.temperature.to_s).to eq '20 C'
     expect(weather.current.dew_point.to_s).to eq '10 C'
     expect(weather.current.heat_index.to_s).to eq '25 C'
@@ -35,15 +37,11 @@ RSpec.describe 'Current weather data' do
     ::Time.utc(2014, 02, 22, 7, 50, 0)
   end
 
-  def morning
-    ::Time.new(2014, 02, 22, 7, 50, 0)
+  def now
+    ::Time.utc(2014, 02, 22, 9, 45, 0)
   end
 
   def sunset
     ::Time.utc(2014, 02, 22, 17, 30, 0)
-  end
-
-  def evening
-    ::Time.new(2014, 02, 22, 17, 30, 0)
   end
 end

@@ -37,11 +37,11 @@ module WeatherObject
 
     describe '#current' do
       it 'finds the most recent measurement' do
-        weather.add_measurement(observed_at: yesterday)
-        weather.add_measurement(observed_at: now)
-        weather.add_measurement(observed_at: yesterday)
+        weather.add_measurement(time: yesterday)
+        weather.add_measurement(time: now)
+        weather.add_measurement(time: yesterday)
 
-        expect(weather.current.observed_at).to eq now
+        expect(weather.current.time).to eq now
       end
 
       def now
