@@ -22,6 +22,13 @@ module WeatherObject
       end
     end
 
+    describe "#cloud_cover" do
+      it "sets cloud_cover percentage" do
+        measurement = Measurement.new(cloud_cover: 50)
+        expect(measurement.cloud_cover.to_s).to eq '50.0 %'
+      end
+    end
+
     describe "#daylight" do
       it "sets start and end" do
         sunrise = ::Time.utc(2014, 2, 22, 7, 30, 0)
