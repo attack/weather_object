@@ -19,7 +19,7 @@ RSpec.describe 'Weather data' do
         state_code: 'NY',
         country: 'US'
       },
-      timezone: WeatherObject::Data::Zone.new('EST'),
+      timezone: 'EST',
       metadata: {
         foo: 'bar',
         baz: true

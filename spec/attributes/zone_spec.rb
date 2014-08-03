@@ -8,8 +8,6 @@ module WeatherObject
   end
 
   RSpec.describe Attribute::Zone do
-    let(:model) { TestClass.new }
-
     context 'when nothing has been set' do
       it 'returns nil' do
         model = TestClass.new(timezone: nil)
@@ -17,9 +15,19 @@ module WeatherObject
       end
     end
 
-    context 'when setting with data to be interpretted as a time zone' do
+    context 'when setting with valid data' do
       it 'sets the value' do
-        model = TestClass.new(timezone: Data::Zone.new('PDT'))
+        model = TestClass.new(timezone: 'MST')
+        expect(model.timezone.to_s).to eq 'MST'
+      end
+    end
+
+    context 'when setting with a Data::Zone' do
+      it 'sets the value' do
+        zone = Data::Zone.new('PDT')
+        model = TestClass.new(timezone: zone)
+
+        expect(model.timezone).to eq zone
         expect(model.timezone.code).to eq 'PDT'
       end
     end
