@@ -8,7 +8,7 @@ module WeatherObject::Data
           longitude: '99.99',
           latitude: '88.88'
         )
-        expect( coordinates.coordinates ).to eq '88.88,99.99'
+        expect(coordinates.coordinates).to eq '88.88,99.99'
       end
     end
   end
