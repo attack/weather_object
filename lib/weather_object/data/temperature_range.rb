@@ -1,34 +1,29 @@
+require 'delegate'
+
 module WeatherObject
   module Data
-    class TemperatureRange
+    class TemperatureRange < SimpleDelegator
       def initialize(*args)
         relevant_args = args.take(2).compact
-        @range = Range.new(relevant_args.first, relevant_args.last)
+        range = Range.new(relevant_args.first, relevant_args.last)
+        super(range)
       end
 
       def low
-        range.min
+        min
       end
 
       def high
-        range.max
-      end
-
-      def cover?(value)
-        range.cover?(value)
+        max
       end
 
       def to_s
         if low == high
           low.to_s
         else
-          range.to_s
+          super
         end
       end
-
-      private
-
-      attr_reader :range
     end
   end
 end

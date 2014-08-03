@@ -1,29 +1,20 @@
+require 'delegate'
+
 module WeatherObject
   module Data
-    class TimeRange
+    class TimeRange < SimpleDelegator
       def initialize(*args)
-        @range = Range.new(*args)
+        range = Range.new(*args)
+        super(range)
       end
 
       def starts_at
-        range.min
+        min
       end
 
       def ends_at
-        range.max
+        max
       end
-
-      def cover?(value)
-        range.cover?(value)
-      end
-
-      def to_s
-        range.to_s
-      end
-
-      private
-
-      attr_reader :range
     end
   end
 end

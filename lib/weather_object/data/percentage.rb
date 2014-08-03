@@ -1,25 +1,16 @@
+require 'delegate'
+
 module WeatherObject
   module Data
-    class Percentage
+    class Percentage < SimpleDelegator
       def initialize(input)
-        @value = PercentageInput.new(input).parse
-      end
-
-      def to_i
-        value.to_i
-      end
-
-      def to_f
-        value.to_f
+        value = PercentageInput.new(input).parse
+        super(value)
       end
 
       def to_s
         sprintf "%.1f \%", (to_f * 100)
       end
-
-      private
-
-      attr_reader :value
 
       class PercentageInput
         def initialize(input)
