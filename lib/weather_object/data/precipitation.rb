@@ -7,6 +7,7 @@ module WeatherObject
 
       attribute :probability, Attribute::Percentage
       attribute :type, String
+      attribute :intensity, Attribute::Rate
     end
   end
 end

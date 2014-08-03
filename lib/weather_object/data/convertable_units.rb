@@ -42,6 +42,10 @@ module WeatherObject
 
       private
 
+      def significant_digits
+        1
+      end
+
       def metric=(value)
         if detect_imperial?(value)
           @metric = false
@@ -117,8 +121,12 @@ module WeatherObject
           ((value.to_i.to_s == value) || (value.to_f.to_s == value))
       end
 
+      def significant_digits_factor
+        10.0 ** significant_digits
+      end
+
       def round(number)
-        (10*number.to_f).round/10.0
+        (significant_digits_factor * number.to_f).round / significant_digits_factor
       end
 
       def magnitude_to_s

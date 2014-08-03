@@ -12,5 +12,12 @@ module WeatherObject::Data
         expect(precipitation.probability.to_s).to eq '50.0 %'
       end
     end
+
+    describe "#intensity" do
+      it "sets intensity rate" do
+        precipitation = Precipitation.new(intensity: 3)
+        expect(precipitation.intensity.to_s).to eq '3 mm/hr'
+      end
+    end
   end
 end
