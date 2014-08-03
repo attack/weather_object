@@ -14,6 +14,7 @@ module WeatherObject
     attribute :visibility, Attribute::Distance
     attribute :cloud_cover, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
+    attribute :moon_phase, Attribute::MoonPhase
     attribute :icon, String
     attribute :summary, String
 

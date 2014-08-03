@@ -8,8 +8,6 @@ module WeatherObject
   end
 
   RSpec.describe Attribute::Percentage do
-    let(:model) { TestClass.new }
-
     context 'when setting to nil' do
       it 'sets the value to nil' do
         model = TestClass.new(percentage: nil)

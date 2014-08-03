@@ -71,6 +71,13 @@ module WeatherObject
       end
     end
 
+    describe "#moon_phase" do
+      it "sets moon_phase percentage" do
+        prediction = Prediction.new(moon_phase: 50)
+        expect(prediction.moon_phase.to_s).to eq '50% (full moon)'
+      end
+    end
+
     describe "#cover?" do
       it "returns true if the valid_date range includes the given date" do
         prediction = Prediction.new(
