@@ -7,7 +7,6 @@ RSpec.describe 'Current weather data' do
       time: now,
       temperature: 20,
       apparent_temperature: 21,
-      pop: '25%',
       dew_point: 10,
       heat_index: 25,
       wind_chill: 18,
@@ -19,13 +18,15 @@ RSpec.describe 'Current weather data' do
       daylight: [sunrise, sunset],
       ozone: 3,
       icon: 'wind',
-      summary: 'windy and sunny'
+      summary: 'windy and sunny',
+      precipitation: {
+        probability: '25%'
+      }
     )
 
     expect(weather.current.time.to_s).to eq '2014-02-22 09:45:00 UTC'
     expect(weather.current.temperature.to_s).to eq '20 C'
     expect(weather.current.apparent_temperature.to_s).to eq '21 C'
-    expect(weather.current.pop.to_s).to eq '25.0 %'
     expect(weather.current.dew_point.to_s).to eq '10 C'
     expect(weather.current.heat_index.to_s).to eq '25 C'
     expect(weather.current.wind_chill.to_s).to eq '18 C'
@@ -39,6 +40,7 @@ RSpec.describe 'Current weather data' do
     expect(weather.current.ozone.to_s).to eq '3 DU'
     expect(weather.current.icon.to_s).to eq 'wind'
     expect(weather.current.summary.to_s).to eq 'windy and sunny'
+    expect(weather.current.precipitation.probability.to_s).to eq '25.0 %'
   end
 
   def sunrise

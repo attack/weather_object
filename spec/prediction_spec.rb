@@ -39,13 +39,6 @@ module WeatherObject
       end
     end
 
-    describe "#pop" do
-      it "sets pop percentage" do
-        prediction = Prediction.new(pop: 50)
-        expect(prediction.pop.to_s).to eq '50.0 %'
-      end
-    end
-
     describe "#humidity" do
       it "sets humidity percentage" do
         prediction = Prediction.new(humidity: 50)
@@ -82,6 +75,17 @@ module WeatherObject
       it "sets ozone" do
         prediction = Prediction.new(ozone: 3)
         expect(prediction.ozone.to_s).to eq '3 DU'
+      end
+    end
+
+    describe "#precipitation" do
+      it "sets probability" do
+        precipitation = {
+          probability: 50
+        }
+        prediction = Prediction.new(precipitation: precipitation)
+        expect(prediction.precipitation.probability.to_s).to eq '50.0 %'
+        expect(prediction.pop.to_s).to eq '50.0 %'
       end
     end
 

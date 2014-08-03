@@ -7,7 +7,6 @@ module WeatherObject
     attribute :time, Attribute::Time
     attribute :temperature, Attribute::Temperature
     attribute :apparent_temperature, Attribute::Temperature
-    attribute :precipitation_probability, Attribute::Percentage
     attribute :dew_point, Attribute::Temperature
     attribute :heat_index, Attribute::Temperature
     attribute :wind_chill, Attribute::Temperature
@@ -20,8 +19,10 @@ module WeatherObject
     attribute :ozone, Attribute::Ozone
     attribute :icon, String
     attribute :summary, String
+    attribute :precipitation, Data::Precipitation
 
-    alias_method :pop, :precipitation_probability
-    alias_method :pop=, :precipitation_probability=
+    def pop
+      precipitation.probability
+    end
   end
 end

@@ -7,7 +7,6 @@ RSpec.describe 'Forecast weather data' do
       time: [noon, evening],
       temperature: [5, 20],
       apparent_temperature: [6, 21],
-      pop: '25%',
       humidity: 0.75,
       wind: 12,
       dew_point: 3,
@@ -17,7 +16,10 @@ RSpec.describe 'Forecast weather data' do
       moon_phase: 0.5,
       ozone: 3,
       icon: 'sunny',
-      summary: 'partly cloudy'
+      summary: 'partly cloudy',
+      precipitation: {
+        probability: '25%'
+      }
     )
 
     forecast = weather.forecast.first
@@ -27,7 +29,6 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.temperature.low.to_s).to eq '5 C'
     expect(forecast.apparent_temperature.high.to_s).to eq '21 C'
     expect(forecast.apparent_temperature.low.to_s).to eq '6 C'
-    expect(forecast.pop.to_s).to eq '25.0 %'
     expect(forecast.humidity.to_s).to eq '75.0 %'
     expect(forecast.wind.to_s).to eq '12 kph'
     expect(forecast.dew_point.to_s).to eq '3 C'
@@ -39,6 +40,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.ozone.to_s).to eq '3 DU'
     expect(forecast.icon.to_s).to eq 'sunny'
     expect(forecast.summary.to_s).to eq 'partly cloudy'
+    expect(forecast.precipitation.probability.to_s).to eq '25.0 %'
   end
 
   def sunrise
