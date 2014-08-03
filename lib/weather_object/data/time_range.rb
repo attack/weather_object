@@ -15,6 +15,10 @@ module WeatherObject
       def ends_at
         max
       end
+
+      def size
+        max - min
+      end
     end
   end
 end

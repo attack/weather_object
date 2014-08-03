@@ -8,8 +8,8 @@ module WeatherObject::Data
 
     describe '#starts_at' do
       it 'sets the starts_at' do
-        temperature_range = TimeRange.new(low, high)
-        expect(temperature_range.starts_at).to eq low
+        time_range = TimeRange.new(low, high)
+        expect(time_range.starts_at).to eq low
       end
 
       it 'raises an error when not given' do
@@ -27,8 +27,8 @@ module WeatherObject::Data
 
     describe '#ends_at' do
       it 'sets the ends_at' do
-        temperature_range = TimeRange.new(low, high)
-        expect(temperature_range.ends_at).to eq high
+        time_range = TimeRange.new(low, high)
+        expect(time_range.ends_at).to eq high
       end
 
       it 'raises an error when not given' do
@@ -45,20 +45,27 @@ module WeatherObject::Data
     end
 
     describe '#cover?' do
-      let(:temperature_range) { TimeRange.new(low, high) }
+      let(:time_range) { TimeRange.new(low, high) }
 
-      specify { expect(temperature_range.cover?(low)).to be true }
-      specify { expect(temperature_range.cover?(mid)).to be true }
-      specify { expect(temperature_range.cover?(high)).to be true }
+      specify { expect(time_range.cover?(low)).to be true }
+      specify { expect(time_range.cover?(mid)).to be true }
+      specify { expect(time_range.cover?(high)).to be true }
 
-      specify { expect(temperature_range.cover?(::Time.utc(2014, 02, 22, 1, 0, 0))).to be false }
-      specify { expect(temperature_range.cover?(::Time.utc(2014, 02, 22, 23, 0, 0))).to be false }
+      specify { expect(time_range.cover?(::Time.utc(2014, 02, 22, 1, 0, 0))).to be false }
+      specify { expect(time_range.cover?(::Time.utc(2014, 02, 22, 23, 0, 0))).to be false }
+    end
+
+    describe '#size' do
+      it 'returns the number of seconds convered by the range' do
+        time_range = TimeRange.new(mid, mid + 100)
+        expect(time_range.size).to eq 100
+      end
     end
 
     describe '#to_s' do
       it 'prints the range' do
-        temperature_range = TimeRange.new(low, high)
-        expect(temperature_range.to_s).to eq '2014-02-22 05:00:00 UTC..2014-02-22 19:00:00 UTC'
+        time_range = TimeRange.new(low, high)
+        expect(time_range.to_s).to eq '2014-02-22 05:00:00 UTC..2014-02-22 19:00:00 UTC'
       end
     end
   end
