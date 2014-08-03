@@ -18,7 +18,8 @@ RSpec.describe 'Forecast weather data' do
       icon: 'sunny',
       summary: 'partly cloudy',
       precipitation: {
-        probability: '25%'
+        probability: '25%',
+        type: :snow
       }
     )
 
@@ -41,6 +42,7 @@ RSpec.describe 'Forecast weather data' do
     expect(forecast.icon.to_s).to eq 'sunny'
     expect(forecast.summary.to_s).to eq 'partly cloudy'
     expect(forecast.precipitation.probability.to_s).to eq '25.0 %'
+    expect(forecast.precipitation.type.to_s).to eq 'snow'
   end
 
   def sunrise

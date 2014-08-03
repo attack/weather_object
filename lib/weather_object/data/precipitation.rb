@@ -6,6 +6,7 @@ module WeatherObject
       include Virtus.value_object
 
       attribute :probability, Attribute::Percentage
+      attribute :type, String
     end
   end
 end

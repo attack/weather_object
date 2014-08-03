@@ -20,7 +20,8 @@ RSpec.describe 'Current weather data' do
       icon: 'wind',
       summary: 'windy and sunny',
       precipitation: {
-        probability: '25%'
+        probability: '25%',
+        type: :rain
       }
     )
 
@@ -41,6 +42,7 @@ RSpec.describe 'Current weather data' do
     expect(weather.current.icon.to_s).to eq 'wind'
     expect(weather.current.summary.to_s).to eq 'windy and sunny'
     expect(weather.current.precipitation.probability.to_s).to eq '25.0 %'
+    expect(weather.current.precipitation.type.to_s).to eq 'rain'
   end
 
   def sunrise
