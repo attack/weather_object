@@ -40,5 +40,12 @@ module WeatherObject
         expect(measurement.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
       end
     end
+
+    describe "#ozone" do
+      it "sets ozone" do
+        measurement = Measurement.new(ozone: 3)
+        expect(measurement.ozone.to_s).to eq '3 DU'
+      end
+    end
   end
 end

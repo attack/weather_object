@@ -16,6 +16,7 @@ RSpec.describe 'Current weather data' do
       humidity: 0.75,
       cloud_cover: '15%',
       daylight: [sunrise, sunset],
+      ozone: 3,
       icon: 'wind',
       summary: 'windy and sunny'
     )
@@ -33,6 +34,7 @@ RSpec.describe 'Current weather data' do
     expect(weather.current.cloud_cover.to_s).to eq '15.0 %'
     expect(weather.current.daylight.starts_at.to_s).to eq '2014-02-22 07:50:00 UTC'
     expect(weather.current.daylight.ends_at.to_s).to eq '2014-02-22 17:30:00 UTC'
+    expect(weather.current.ozone.to_s).to eq '3 DU'
     expect(weather.current.icon.to_s).to eq 'wind'
     expect(weather.current.summary.to_s).to eq 'windy and sunny'
   end

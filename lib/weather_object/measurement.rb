@@ -16,6 +16,7 @@ module WeatherObject
     attribute :humidity, Attribute::Percentage
     attribute :cloud_cover, Attribute::Percentage
     attribute :daylight, Attribute::TimeRange
+    attribute :ozone, Attribute::Ozone
     attribute :icon, String
     attribute :summary, String
   end
