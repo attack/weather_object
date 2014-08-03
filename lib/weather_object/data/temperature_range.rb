@@ -4,8 +4,7 @@ module WeatherObject
   module Data
     class TemperatureRange < SimpleDelegator
       def initialize(*args)
-        relevant_args = args.take(2).compact
-        range = Range.new(relevant_args.first, relevant_args.last)
+        range = TemperatureRangeInput.new(args).parse
         super(range)
       end
 
@@ -22,6 +21,24 @@ module WeatherObject
           low.to_s
         else
           super
+        end
+      end
+
+      class TemperatureRangeInput
+        def initialize(args)
+          @args = args
+        end
+
+        def parse
+          Range.new(relevant_args.first, relevant_args.last)
+        end
+
+        private
+
+        attr_reader :args
+
+        def relevant_args
+          args.take(2).compact
         end
       end
     end
