@@ -16,14 +16,19 @@ module WeatherObject
     end
 
     context 'when setting to a percentage' do
-      it 'responds with a Float' do
+      it 'sets the value to the percentage' do
         model = TestClass.new(percentage: '75%')
-        expect(model.percentage.to_f).to be_a Float
+        expect(model.percentage.to_f).to eq 0.75
       end
+    end
 
-      it 'prints correctly' do
-        model = TestClass.new(percentage: '75%')
-        expect(model.percentage.to_s).to eq '75.0 %'
+    context 'when setting with Data::Percentage' do
+      it 'uses the passed in value' do
+        percentage = Data::Percentage.new(0.5)
+        model = TestClass.new(percentage: percentage)
+
+        expect(model.percentage).to eq percentage
+        expect(model.percentage.object_id).to eq percentage.object_id
       end
     end
   end
