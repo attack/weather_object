@@ -2,7 +2,7 @@ require 'virtus'
 
 module WeatherObject
   class Base
-    include Virtus.model
+    include Virtus.value_object
 
     attribute :recorded_at, Attribute::Time
     attribute :query, String

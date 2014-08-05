@@ -2,7 +2,7 @@ require 'virtus'
 
 module WeatherObject
   class Prediction
-    include Virtus.model
+    include Virtus.value_object
 
     attribute :time, Attribute::TimeRange
     attribute :temperature, Attribute::TemperatureRange

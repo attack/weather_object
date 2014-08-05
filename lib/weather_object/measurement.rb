@@ -2,7 +2,7 @@ require 'virtus'
 
 module WeatherObject
   class Measurement
-    include Virtus.model
+    include Virtus.value_object
 
     attribute :time, Attribute::Time
     attribute :temperature, Attribute::Temperature
