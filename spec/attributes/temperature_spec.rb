@@ -9,14 +9,19 @@ module WeatherObject
 
   RSpec.describe Attribute::Temperature do
     context 'when setting to nil' do
-      it 'resets the value' do
+      it 'initializes a Data::NullTemperature' do
+        model = TestClass.new(temperature: nil)
+        expect(model.temperature).to be_a Data::NullTemperature
+      end
+
+      it 'is nil' do
         model = TestClass.new(temperature: nil)
         expect(model.temperature).to be_nil
       end
     end
 
-    context 'when setting with data of exact values' do
-      it 'initializes Data::Temperature' do
+    context 'when setting to a single value' do
+      it 'initializes a Data::Temperature' do
         model = TestClass.new(temperature: [12])
         expect(model.temperature).to be_a Data::Temperature
       end
@@ -28,7 +33,7 @@ module WeatherObject
     end
 
     context 'when setting to multiple values' do
-      it 'initializes Data::Temperature' do
+      it 'initializes a Data::Temperature' do
         model = TestClass.new(temperature: [12, 53])
         expect(model.temperature).to be_a Data::Temperature
       end
