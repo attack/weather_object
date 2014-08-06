@@ -9,26 +9,31 @@ module WeatherObject
 
   RSpec.describe Attribute::Distance do
     context 'when setting to nil' do
-      it 'sets the value' do
+      it 'initializes a Data::NullDistance' do
+        model = TestClass.new(distance: nil)
+        expect(model.distance).to be_a Data::NullDistance
+      end
+
+      it 'is nil' do
         model = TestClass.new(distance: nil)
         expect(model.distance).to be_nil
       end
     end
 
-    context 'when setting with data of exact values' do
-      it 'initializes Data::Distance' do
+    context 'when setting to a single value' do
+      it 'initializes a Data::Distance' do
         model = TestClass.new(distance: [42.2])
         expect(model.distance).to be_a Data::Distance
       end
 
-      it 'prints correctly' do
+      it 'defaults to :metric' do
         model = TestClass.new(distance: [42.2])
         expect(model.distance.to_s).to eq '42.2 km'
       end
     end
 
     context 'when setting to multiple values' do
-      it 'initializes Data::Distance' do
+      it 'initializes a Data::Distance' do
         model = TestClass.new(distance: [42.2, 26.2])
         expect(model.distance).to be_a Data::Distance
       end
