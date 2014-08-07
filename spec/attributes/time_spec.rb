@@ -8,8 +8,8 @@ module WeatherObject
   end
 
   RSpec.describe Attribute::Time do
-    context 'when nothing has been set' do
-      it 'returns nil' do
+    context 'when setting to nil' do
+      it 'is nil' do
         model = TestClass.new(time: nil)
         expect(model.time).to be_nil
       end
@@ -36,12 +36,12 @@ module WeatherObject
       end
     end
 
-    context 'when setting with Time' do
+    context 'when setting with ::Time' do
       it 'uses the passed in value' do
         time = ::Time.now.utc
         model = TestClass.new(time: time)
 
-        expect(model.time).to be_a ::Time
+        expect(model.time).to eq time
         expect(model.time.object_id).to eq time.object_id
       end
     end
