@@ -9,7 +9,7 @@ module WeatherObject
 
   RSpec.describe Attribute::MoonPhase do
     context 'when setting to nil' do
-      it 'sets the value to nil' do
+      it 'is nil' do
         model = TestClass.new(moon_phase: nil)
         expect(model.moon_phase).to be_nil
       end
