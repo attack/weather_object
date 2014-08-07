@@ -9,11 +9,14 @@ module WeatherObject
 
   RSpec.describe Attribute::Location do
     context 'when setting to nil' do
-      it 'sets the value' do
+      it 'initializes a Data::NullLocation' do
         model = TestClass.new(location: nil)
+        expect(model.location).to be_a Data::NullLocation
+      end
 
-        expect(model.location).to be_a Data::Location
-        expect(model.location.to_s).to be_empty
+      it 'is nil' do
+        model = TestClass.new(location: nil)
+        expect(model.location).to be_nil
       end
     end
 
@@ -31,12 +34,12 @@ module WeatherObject
       it 'raises an error' do
         expect {
           TestClass.new(location: 'foo')
-        }.to raise_error{ ArgumentError }
+        }.to raise_error { ArgumentError }
       end
     end
 
-    context 'when setting with a location' do
-      it 'sets the value' do
+    context 'when setting with Data::Location' do
+      it 'uses the passed in value' do
         location = Data::Location.new(name: 'foo')
         model = TestClass.new(location: location)
 

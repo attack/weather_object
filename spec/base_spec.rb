@@ -13,12 +13,14 @@ module WeatherObject
     describe 'attributes' do
       describe '#location' do
         it 'has a weather location' do
+          weather = Base.new(location: {})
           expect(weather.location).to be_a Data::Location
         end
       end
 
       describe '#station' do
         it 'has a station location' do
+          weather = Base.new(station: {})
           expect(weather.station).to be_a Data::Location
         end
       end
