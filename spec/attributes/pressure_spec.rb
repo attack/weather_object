@@ -9,26 +9,31 @@ module WeatherObject
 
   RSpec.describe Attribute::Pressure do
     context 'when setting to nil' do
-      it 'sets the value' do
+      it 'initializes a Data::NullPressure' do
+        model = TestClass.new(pressure: nil)
+        expect(model.pressure).to be_a Data::NullPressure
+      end
+
+      it 'is nil' do
         model = TestClass.new(pressure: nil)
         expect(model.pressure).to be_nil
       end
     end
 
-    context 'when setting with data of exact values' do
-      it 'initializes Data::Pressure' do
+    context 'when setting to a single value' do
+      it 'initializes a Data::Pressure' do
         model = TestClass.new(pressure: [12])
         expect(model.pressure).to be_a Data::Pressure
       end
 
-      it 'prints correctly' do
+      it 'defaults to :metric' do
         model = TestClass.new(pressure: [12])
         expect(model.pressure.to_s).to eq '12 mb'
       end
     end
 
     context 'when setting to multiple values' do
-      it 'initializes Data::Pressure' do
+      it 'initializes a Data::Pressure' do
         model = TestClass.new(pressure: [1234, 36])
         expect(model.pressure).to be_a Data::Pressure
       end
