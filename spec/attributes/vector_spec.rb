@@ -11,19 +11,24 @@ module WeatherObject
     let(:model) { TestClass.new }
 
     context 'when setting to nil' do
-      it 'sets the value' do
+      it 'initializes a Data::NullVector' do
+        model = TestClass.new(vector: nil)
+        expect(model.vector).to be_a Data::NullVector
+      end
+
+      it 'is nil' do
         model = TestClass.new(vector: nil)
         expect(model.vector).to be_nil
       end
     end
 
-    context 'when setting with data of exact values' do
-      it 'initializes Data::Vector' do
-        model = TestClass.new(vector: [12, 270])
+    context 'when setting to a value' do
+      it 'initializes a Data::Vector' do
+        model = TestClass.new(vector: [12])
         expect(model.vector).to be_a Data::Vector
       end
 
-      it 'prints correctly' do
+      it 'defaults to :metric' do
         model = TestClass.new(vector: [12])
         expect(model.vector.to_s).to eq '12 kph'
       end
